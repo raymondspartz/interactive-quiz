@@ -96,4 +96,12 @@ let newCheckAnswerSection = function () {
 
 ////////////////////////////////////////////////////////////////////////////
 
+//
+let loadQuestion = function () {
+  let questionKey = "question" + currentView;
+  let currentQuestion = questionObj[questionKey].title;
+
+  return currentQuestion;
+};
+
 document.querySelector(".quizBegin").addEventListener("click", quizBegin);
