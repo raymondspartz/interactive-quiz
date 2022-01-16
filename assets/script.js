@@ -26,7 +26,7 @@ let quizBegin = function () {
   currentSlide = 1;
   timeCount = 60;
 
-  // creates the new sections dynamically
+  // Creates the new sections dynamically
   let newSection;
   for (let i = 0; i < 3; i++) {
     if (i === 0) {
@@ -44,7 +44,25 @@ let quizBegin = function () {
   startTimer(mainBody);
 };
 
-// Create second section of quiz that contains answer choices.
+//////////////////////////////////////////////////////////////////////////////
+
+// Create 1st section to ask the question
+let addQuestionSection = function () {
+  newSection = document.createElement("section");
+  newSection.className = "questionSection";
+
+  let newDiv = document.createElement("div");
+  newDiv.className = "questionDiv";
+  newSection.appendChild(newDiv);
+
+  let questionHeader = document.createElement("h1");
+  questionHeader.className = "question";
+  newDiv.appendChild(questionHeader);
+
+  return newSection;
+};
+
+// Create 2nd that displays the options
 let newOptionSection = function () {
   newSection.className = "optionSection";
 
@@ -63,20 +81,19 @@ let newOptionSection = function () {
   return newSection;
 };
 
-// Create first section of quiz that contains the question.
-let addQuestionSection = function () {
+// Create 3rd section to validate the answer
+let newCheckAnswerSection = function () {
+  let feedbackHeader = document.createElement("h2");
+  feedbackHeader.id = "feedback";
+
   newSection = document.createElement("section");
-  newSection.className = "questionSection";
+  newSection.className = "checkAnswerSection";
 
-  let newDiv = document.createElement("div");
-  newDiv.className = "questionDiv";
-  newSection.appendChild(newDiv);
-
-  let questionHeader = document.createElement("h1");
-  questionHeader.className = "question";
-  newDiv.appendChild(questionHeader);
+  newSection.appendChild(feedbackHeader);
 
   return newSection;
 };
+
+////////////////////////////////////////////////////////////////////////////
 
 document.querySelector(".quizBegin").addEventListener("click", quizBegin);
