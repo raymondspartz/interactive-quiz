@@ -14,8 +14,6 @@ let questionObj = {
   },
 };
 
-document.querySelector(".quizBegin").addEventListener("click", quizBegin);
-
 let clearMain = function () {
   while (mainBody.firstChild) {
     mainBody.removeChild(mainBody.firstChild);
@@ -49,12 +47,11 @@ let quizBegin = function () {
 // Create second section of quiz that contains answer choices.
 let newOptionSection = function () {
   newSection.className = "optionSection";
-  // Create div that holds the answer buttons.
+
   newDiv = document.createElement("div");
   newDiv.className = "answerDiv";
   newSection.appendChild(newDiv);
 
-  // Create 4 option buttons
   for (let i = 0; i < 4; i++) {
     let btn = document.createElement("button");
     btn.className = "answers";
@@ -65,3 +62,21 @@ let newOptionSection = function () {
 
   return newSection;
 };
+
+// Create first section of quiz that contains the question.
+let addQuestionSection = function () {
+  newSection = document.createElement("section");
+  newSection.className = "questionSection";
+
+  let newDiv = document.createElement("div");
+  newDiv.className = "questionDiv";
+  newSection.appendChild(newDiv);
+
+  let questionHeader = document.createElement("h1");
+  questionHeader.className = "question";
+  newDiv.appendChild(questionHeader);
+
+  return newSection;
+};
+
+document.querySelector(".quizBegin").addEventListener("click", quizBegin);
