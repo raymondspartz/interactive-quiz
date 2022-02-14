@@ -12,6 +12,42 @@ let questionObj = {
       "function array = {}",
     ],
   },
+  question2: {
+    title: "How do you create an array in JavaScript?",
+    options: [
+      "var x = [] this one ",
+      "array = {}",
+      "array = []",
+      "function array = {}",
+    ],
+  },
+  question3: {
+    title: "How do you create an array in JavaScript?",
+    options: [
+      "var x = [] this one ",
+      "array = {}",
+      "array = []",
+      "function array = {}",
+    ],
+  },
+  question4: {
+    title: "How do you create an array in JavaScript?",
+    options: [
+      "var x = [] this one ",
+      "array = {}",
+      "array = []",
+      "function array = {}",
+    ],
+  },
+  question5: {
+    title: "How do you create an array in JavaScript?",
+    options: [
+      "var x = [] this one ",
+      "array = {}",
+      "array = []",
+      "function array = {}",
+    ],
+  },
 };
 
 let clearMain = function () {
