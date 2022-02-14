@@ -45,3 +45,9 @@ p {
   font-size: 20px;
   color: rgb(213, 224, 255);
 }
+
+newSection {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
