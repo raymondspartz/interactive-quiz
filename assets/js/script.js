@@ -150,6 +150,27 @@ let newCheckAnswerSection = function () {
   return newSection;
 };
 
+// Check users answer when they select one, then provide feedback.
+let checkAnswer = function () {
+  let answerButtons = document.querySelectorAll(".answers");
+  let feedbackHeader = document.querySelector("#feedback");
+  // Adds an event listener to every button with the class name of "answers".
+  answerButtons.forEach((btn) => {
+    // Without differentiating "mousedown" and "mouseup" between these event listeners,
+    // the "currentTarget" method would not return the correct current value.
+    btn.addEventListener("mousedown", function (event) {
+      if (event.currentTarget.id === "answer3") {
+        feedbackHeader.textContent = "Correct!";
+      } else {
+        feedbackHeader.textContent = "Wrong!";
+        timeCount = timeCount - 10;
+      }
+    });
+    // After checking the users answer, the next questions and answers will load.
+    btn.addEventListener("mouseup", loadQA);
+  });
+};
+
 ////////////////////////////////////////////////////////////////////////////
 
 let loadQuestion = function () {
