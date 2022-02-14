@@ -56,6 +56,26 @@ let clearMain = function () {
   }
 };
 
+// Start timer when quiz begins.
+let startTimer = function () {
+  let timer = document.querySelector("span");
+  timeCount = 60;
+  let timerFunction = setInterval(function () {
+    if (timeCount < 0) {
+      timeCount = 0;
+    }
+    // Check to make sure the timer hasn't run out and there are still more slides left.
+    if (timeCount > 0 && currentSlide < 7) {
+      timeCount--;
+      timer.textContent = timeCount;
+    } else {
+      clearInterval(timerFunction);
+      timer.textContent = timeCount;
+      endGame();
+    }
+  }, 1000);
+};
+
 // Begin the quiz game.
 let quizBegin = function () {
   clearMain();
