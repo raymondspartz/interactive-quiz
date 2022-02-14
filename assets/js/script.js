@@ -210,3 +210,18 @@ let loadAnswers = function () {
     answerButtons[i].textContent = questionObj[questionKey].answers[val];
   }
 };
+
+// Load the new question and corresponding answers.
+let loadQA = function () {
+  // Check to make sure the value of currentSlide has not gone over the max amount of available questions.
+  if (currentSlide <= Object.keys(questionObj).length) {
+    let question = document.querySelector(".question");
+    question.textContent = loadQuestion();
+    loadAnswers();
+    currentSlide++;
+  } else {
+    // Increment currentSlide value once more so that startTimer() will exectue clearInterval(timerFunction).
+    currentSlide++;
+    endGame();
+  }
+};
